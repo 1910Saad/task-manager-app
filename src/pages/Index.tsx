@@ -1,13 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import { AuthProvider } from '@/contexts/AuthContext';
+import { TaskProvider } from '@/contexts/TaskContext';
+import AppLayout from '@/components/layout/AppLayout';
+import TaskForm from '@/components/tasks/TaskForm';
+import TaskList from '@/components/tasks/TaskList';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <AuthProvider>
+      <TaskProvider>
+        <AppLayout>
+          <div className="max-w-3xl mx-auto">
+            <h1 className="text-3xl font-bold text-center mb-6">Task Management</h1>
+            
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle>My Tasks</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <TaskForm />
+                <TaskList />
+              </CardContent>
+            </Card>
+          </div>
+        </AppLayout>
+      </TaskProvider>
+    </AuthProvider>
   );
 };
 
