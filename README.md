@@ -100,12 +100,12 @@ yarn dev
 For testing purposes, you can use these accounts:
 
 1. **Regular User**
-   - Email: user@example.com
-   - Password: password123
+   - Email: admin@example.com
+   - Password: password
 
 2. **Demo User**
    - Email: demo@example.com
-   - Password: demo123
+   - Password: password
 
 Each test user has sample tasks pre-populated in their account.
 
