@@ -1,73 +1,114 @@
-# Welcome to your Lovable project
 
-## Project info
+# Task Management Application
 
-**URL**: https://lovable.dev/projects/322126e8-b601-4d12-bc46-947c86ac0d62
+A full-stack task management application built with React, allowing users to manage their daily tasks efficiently.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **User Authentication**: Register and log in with email/password
+- **Task Management**: 
+  - Create, view, update, and delete tasks
+  - Mark tasks as complete/incomplete
+  - Set priority levels (Low, Medium, High)
+- **Task Organization**:
+  - Filter tasks by status (All, Active, Completed)
+  - Sort tasks by creation date
+  - Categorize tasks by priority
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/322126e8-b601-4d12-bc46-947c86ac0d62) and start prompting.
+- **Frontend**:
+  - React with TypeScript
+  - Tailwind CSS for styling
+  - Shadcn UI components
+  - React Query for data fetching
+  - React Router for navigation
 
-Changes made via Lovable will be committed automatically to this repo.
+- **State Management**:
+  - React Context API
+  - Custom hooks for reusable logic
 
-**Use your preferred IDE**
+## Project Structure
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+The application follows a component-based architecture:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- `/components`: Reusable UI components
+- `/contexts`: React contexts for state management
+- `/hooks`: Custom React hooks
+- `/pages`: Main application pages
+- `/lib`: Utility functions and helpers
 
-Follow these steps:
+## Getting Started
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Prerequisites
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- Node.js (v16 or later)
+- npm or yarn
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Installation
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+1. Clone the repository
+```bash
+git clone <repository-url>
+cd task-management-app
 ```
 
-**Edit a file directly in GitHub**
+2. Install dependencies
+```bash
+npm install
+# or
+yarn
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+3. Start the development server
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-**Use GitHub Codespaces**
+4. Open your browser and navigate to `http://localhost:8080`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Usage
 
-## What technologies are used for this project?
+1. Register a new account or log in with existing credentials
+2. Add new tasks using the task form
+3. Update task status by clicking on the checkbox
+4. Edit or delete tasks using the provided controls
+5. Filter tasks by status using the filter options
 
-This project is built with:
+## Database Schema
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### User
+- id: UUID (primary key)
+- name: String
+- email: String (unique)
+- password: String (hashed)
+- created_at: Timestamp
 
-## How can I deploy this project?
+### Task
+- id: UUID (primary key)
+- user_id: UUID (foreign key -> User.id)
+- title: String
+- description: String
+- status: Boolean
+- priority: Enum ('low', 'medium', 'high')
+- created_at: Timestamp
 
-Simply open [Lovable](https://lovable.dev/projects/322126e8-b601-4d12-bc46-947c86ac0d62) and click on Share -> Publish.
+## Test Users
 
-## Can I connect a custom domain to my Lovable project?
+For testing purposes, you can use these accounts:
 
-Yes, you can!
+1. **Regular User**
+   - Email: user@example.com
+   - Password: password123
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+2. **Demo User**
+   - Email: demo@example.com
+   - Password: demo123
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Each test user has sample tasks pre-populated in their account.
+
+## License
+
+[MIT](LICENSE)
